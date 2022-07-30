@@ -1,6 +1,6 @@
 # TravelingWithPurpose
 
-
+We're creating a travel resource with locals in mind. Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using 
 
 
 Possible Technologies:
