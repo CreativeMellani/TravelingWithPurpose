@@ -1,6 +1,10 @@
 # TravelingWithPurpose
 
-We're creating a travel resource with locals in mind. Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using 
+We're creating a travel resource with locals in mind. Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using local specific generated content.
+
+As a user I want to recieve up to date information on my travel destination
+When I search for my destination I will be given official travel advisory updates
+
 
 
 Possible Technologies:
@@ -14,10 +18,18 @@ sessions:
 helpers
 Cors: https://www.npmjs.com/package/cors
 Unique ID: https://www.npmjs.com/package/generate-unique-id
-Passport: https://www.passportjs.org/ (middleware to authenticate users)
+leaflet js: https://www.npmjs.com/package/leaflet
+
+APIs:
+
+https://newsapi.org/docs/get-started#top-headlines
+https://rapidapi.com/hub
+
+
+
 
 
 Team :
-Carolina Hernandez:
-Min Khant:
-Mellani Johnson:
+Carolina Hernandez: Database, Schema, MySQL, (Files:)
+Min Khant: Severside, (Files:)
+Mellani Johnson: Project Management, UX/UI (Files: HTML, CSS, JS)
