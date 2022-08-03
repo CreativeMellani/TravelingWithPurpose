@@ -32,3 +32,6 @@ router.get('/login', (req, res) => {
     }
     res.render('login')
 });
+
+// export module as router
+module.exports = router;
