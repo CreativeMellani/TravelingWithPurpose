@@ -1,6 +1,8 @@
-# TravelingWithPurpose
+# Infomed Traveler
 
-We're creating a travel resource with locals in mind. Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using local specific generated content.
+We're creating a travel resource with locals in mind. 
+
+Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using local specific generated content.
 
 As a user I want to recieve up to date information on my travel destination
 When I search for my destination I will be given official travel advisory updates
