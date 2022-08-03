@@ -19,3 +19,26 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+// login route save session after validation check email and password of userProfile
+router.post('login', async (req, res) => {
+    try {
+        const userProfile = await User.findOne({ where: { email: req.body.email }});
+        // return if user input email cannot be found in userProfile
+        if (!userProfile) {
+            res.status(400).json({ message: 'Email entered cannot be found!'});
+            return;
+        }
+
+        const validPassword = await userProfile.checkPassword(req.body.password);
+        // return if user input password is not matched to data in userProfile
+        if (!validPassword) {
+            res.status(400).json({ message: 'Password entered does not match!'});
+            return;
+        }
+    }
+})
+
+// logout route destroy session and end session
+
+// export module as router
