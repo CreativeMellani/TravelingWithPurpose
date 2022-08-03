@@ -3,7 +3,9 @@ const router = require('express').Router();
 // connect user and home routes
 const apiRoutes = require('./api');
 
-// use middleware
+// use middleware to direct to homeRoutes
+router.use('/', homeRoutes);
+// use middleware to direct to apiRoute
 router.use('/api', apiRoutes);
 
 // export module as router
