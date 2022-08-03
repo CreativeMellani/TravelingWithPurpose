@@ -36,8 +36,18 @@ router.post('login', async (req, res) => {
             res.status(400).json({ message: 'Password entered does not match!'});
             return;
         }
+
+        req.session.save(() => {
+            req.session.user_id = userProfile.id;
+            req.session.logged_in = true;
+
+            res.json({ user: userProfile, message: 'User' + userProfile.id +'has successfully logged in!'});
+        });
+    // else catch error res 400 status
+    } catch (err) {
+        res.status(400).json(err);
     }
-})
+});
 
 // logout route destroy session and end session
 
