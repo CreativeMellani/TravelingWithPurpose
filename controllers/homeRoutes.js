@@ -5,7 +5,7 @@ const { Travels, User} = require('../models');
 // import Auth helper function from utils
 const userAuth = require('../utils/user_auth');
 
-// user middleware to check for user name and email to render homepage
+// use middleware to check for user name and email from userProfile data
 router.get('/', userAuth, async (req, res) => {
     try {
         const userProfile = await User.findAll ({
