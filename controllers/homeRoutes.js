@@ -5,6 +5,24 @@ const { Travels, User} = require('../models');
 // import Auth helper function from utils
 const userAuth = require('../utils/user_auth');
 
+// user middleware to check for user name and email to render homepage
+router.get('/', userAuth, async (req, res) => {
+    try {
+        const userProfile = await User.findAll ({
+            attributes: { exclude: ['password']},
+            order: [['name', 'email']],
+        });
+        // create users by mapping through Travels data and use to render homepage handlebars
+        const users = userProfile.map((Travels) => Travels.get({ plain: true}));
+        res.render('homepage', {
+            users,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // utilize Auth helper function to redirect to login route
 router.get('/profile', userAuth, async (req, res) => {
     try {
