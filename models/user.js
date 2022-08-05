@@ -1,36 +1,63 @@
-// const { Model, DataTypes } = require ('sequilize');
-// const sequilize= require ('../config/connections');
+const { Model, DataTypes } = require ('sequilize');
+const sequilize= require ('../config/connections');
+const bcrypt = require ('bcrypt');
+class User extends Model {
+    checkPassword (PWinput){
+        return bcrypt.compareSync(PWinput, this.password);
+    }
+}
 
-// class User extends Model {}
+User.init(
+{
+    id:{
 
-// User.init(
-// {
-//     id:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+    }, 
+    first_name:{
+        type: DataTypes.STRING, 
+        allowNull: false,
+    }, 
+    last_name:{
+        type: DataTypes.STRING,
+        allowNull: false,  
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate:{
+            isEmail: true,
+        },
+    }, 
+    password:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            len: [10],
+        },
+    },
+    hooks: {
+        beforeCreate: async (newData) => {
+          newData.password = await bcrypt.hash(newData.password, 10);
+          return newData;
+        }, 
+        beforeUpdate: async (updatedData) => {
+          updatedData.password = await bcrypt.hash(updatedData.password, 10);
+          return updatedData;
+        },
+},
 
 
-//     }
+    sequilize,
+    freezeTableName: true,
+    underscore: true,
+    modelName: "user",
+    timestamp: false,
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-// }
-// {
-//     sequilize,
-//     freezeTableName: true,
-//     underscore: true,
-//     modelName: "user",
-
-// }
-
-// );
-// model.exports = User;
+);
+model.exports = User;
