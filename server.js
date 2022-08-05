@@ -7,7 +7,7 @@ const session = require('express-session');
 // import express-handlebars module
 const expHbs = require('express-handlebars');
 // use expHbs and helper function formatDate for handlebars engine 
-const hbs = expHbs.create({ formatDate });
+const hbs = expHbs.create({});
 // import API routes from controller folder
 const routes = require('./controllers');
 
