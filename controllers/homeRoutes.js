@@ -1,7 +1,7 @@
 // require express.Router
 const router = require('express').Router();
-// import Travel, User models
-const { Travel, User} = require('../models');
+// import Searched, User models
+const { Searched, User} = require('../models');
 // import Auth helper function from utils
 const userAuth = require('../utils/user_auth');
 
@@ -12,8 +12,8 @@ router.get('/', userAuth, async (req, res) => {
             attributes: { exclude: ['password']},
             order: [['name', 'email']],
         });
-        // create users by mapping through Travel data and use to render homepage handlebars
-        const users = userProfile.map((Travel) => Travel.get({ plain: true}));
+        // create users by mapping through Searched data and use to render homepage handlebars
+        const users = userProfile.map((Searched) => Searched.get({ plain: true}));
         res.render('homepage', {
             users,
             logged_in: req.session.logged_in,
@@ -29,7 +29,7 @@ router.get('/profile', userAuth, async (req, res) => {
         // findByPk using session ID
         const userProfile = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
-            include: [{model: Travel}],
+            include: [{model: Searched}],
         });
         const user = userProfile.get({ plain: true});
         res.render('profile', {
