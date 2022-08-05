@@ -9,3 +9,13 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+.section{
+    height: 500px;
+    width: 500px;
+    padding: 100px;
+}
+
+.right {
+    float: right;
+  }

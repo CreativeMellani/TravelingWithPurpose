@@ -22,9 +22,13 @@ signupButton.addEventListener('click', () => {
 });
 
 // Adding event listener to close background of modal
-modalBg.addEventListener('click', () => {
+exitBtn.addEventListener('click', () => {
     modal.classList.remove('is-active');
 });
+
+// create session so modal can only pop up once 
+
+
 
 
 
