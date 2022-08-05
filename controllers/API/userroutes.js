@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 // login route save session after validation check email and password of userProfile
-router.post('login', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         const userProfile = await User.findOne({ where: { email: req.body.email }});
         // return if user input email cannot be found in userProfile
@@ -53,7 +53,7 @@ router.post('login', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.status(200).end();
         });
         // else error 404
     } else {
