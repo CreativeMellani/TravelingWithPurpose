@@ -6,9 +6,9 @@ const userRoutes = require('./userRoutes');
 const travelRoutes = require('./travelRoutes');
 
 // use middleware to direct to homeRoutes
-router.use('/users', userRoutes);
+router.use('/user', userRoutes);
 // use middleware to direct to travelRoute
-router.use('/travels', travelRoutes);
+router.use('/travel', travelRoutes);
 
 // export module as router
 module.exports = router;

@@ -1,7 +1,7 @@
 // require express.router
 const router = require('express').Router();
 // connect user and home routes
-// const apiRoutes = require('./api');
+const apiRoutes = require('./api');
 const homeRoutes=require('./homeRoutes');
 
 // use middleware to direct to homeRoutes
