@@ -7,7 +7,7 @@ const homeRoutes=require('./homeRoutes');
 // use middleware to direct to homeRoutes
 router.use('/', homeRoutes);
 // use middleware to direct to apiRoute
-// router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 
 // export module as router
 module.exports = router;
