@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require ('sequilize');
-const sequilize= require ('../config/connections');
+const { Model, DataTypes } = require ('sequelize');
+const sequelize= require ('../config/connections');
 const bcrypt = require ('bcrypt');
 class User extends Model {
     checkPassword (PWinput){
@@ -51,7 +51,7 @@ User.init(
 },
 
 
-    sequilize,
+    sequelize,
     freezeTableName: true,
     underscore: true,
     modelName: "user",
