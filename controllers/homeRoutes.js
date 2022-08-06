@@ -24,7 +24,7 @@ router.get('/', userAuth, async (req, res) => {
 });
 
 // utilize Auth helper function to redirect to login route
-router.get('/profile', userAuth, async (req, res) => {
+router.get('/user', userAuth, async (req, res) => {
     try {
         // findByPk using session ID
         const userProfile = await User.findByPk(req.session.user_id, {
@@ -32,7 +32,7 @@ router.get('/profile', userAuth, async (req, res) => {
             include: [{model: Searched}],
         });
         const user = userProfile.get({ plain: true});
-        res.render('profile', {
+        res.render('user', {
             ...user,
             logged_in: true
         });
@@ -42,10 +42,10 @@ router.get('/profile', userAuth, async (req, res) => {
     }
 });
 
-// redirect client request to profile if logged in
+// redirect client request to user profile if logged in
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/user');
         return;
     }
     res.render('login')
