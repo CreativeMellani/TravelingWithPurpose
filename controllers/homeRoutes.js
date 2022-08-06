@@ -5,15 +5,15 @@ const { Searched, User} = require('../models');
 // import Auth helper function from utils
 const userAuth = require('../utils/user_auth');
 
-// use middleware to check for user name and email from userProfile data
+// use middleware to check for user name and email from userData data
 router.get('/', userAuth, async (req, res) => {
     try {
-        const userProfile = await User.findAll ({
+        const userData = await User.findAll ({
             attributes: { exclude: ['password']},
             order: [['name', 'email']],
         });
         // create users by mapping through Searched data and use to render homepage handlebars
-        const users = userProfile.map((Searched) => Searched.get({ plain: true}));
+        const users = userData.map((Searched) => Searched.get({ plain: true}));
         res.render('homepage', {
             users,
             logged_in: req.session.logged_in,
@@ -27,11 +27,11 @@ router.get('/', userAuth, async (req, res) => {
 router.get('/user', userAuth, async (req, res) => {
     try {
         // findByPk using session ID
-        const userProfile = await User.findByPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
             include: [{model: Searched}],
         });
-        const user = userProfile.get({ plain: true});
+        const user = userData.get({ plain: true});
         res.render('user', {
             ...user,
             logged_in: true
