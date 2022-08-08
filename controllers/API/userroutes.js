@@ -6,13 +6,13 @@ const { User } = require('../../models');
 // save session using user_id and log into session
 router.post('/', async (req, res) => {
     try{
-        const userProfile = await User.create(req.body);
+        const userData = await User.create(req.body);
         // save session
         req.session.save(()=> {
-            req.session.user_id = userProfile.id;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
             // return res 200 network status
-            res.status(200).json(userProfile);
+            res.status(200).json(userData);
         });
     // else catch error and return res 400 network status
     } catch (err) {
@@ -20,28 +20,28 @@ router.post('/', async (req, res) => {
     }
 });
 
-// login route save session after validation check email and password of userProfile
+// login route save session after validation check email and password of userData
 router.post('/login', async (req, res) => {
     try {
-        const userProfile = await User.findOne({ where: { email: req.body.email }});
-        // return if user input email cannot be found in userProfile
-        if (!userProfile) {
+        const userData = await User.findOne({ where: { email: req.body.email }});
+        // return if user input email cannot be found in userData
+        if (!userData) {
             res.status(400).json({ message: 'Email entered cannot be found!'});
             return;
         }
 
-        const validPassword = await userProfile.checkPassword(req.body.password);
-        // return if user input password is not matched to data in userProfile
+        const validPassword = await userData.checkPassword(req.body.password);
+        // return if user input password is not matched to data in userData
         if (!validPassword) {
             res.status(400).json({ message: 'Password entered does not match!'});
             return;
         }
 
         req.session.save(() => {
-            req.session.user_id = userProfile.id;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
 
-            res.json({ user: userProfile, message: 'User' + userProfile.id +'has successfully logged in!'});
+            res.json({ user: userData, message: 'User' + userData.id +'has successfully logged in!'});
         });
     // else catch error res 400 status
     } catch (err) {
