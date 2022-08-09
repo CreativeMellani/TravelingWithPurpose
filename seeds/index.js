@@ -6,10 +6,11 @@ const userSearch = require ('../seeds/searchData.json');
 const userDatabase = async () =>{
     await sequilize.sync({force: true });
 
-//  const 
+    await User.bulkCreate(userProfile, {
+        individualHooks: true,
+        returning:true,
+    });
 
-
-}
 
     await Searched.bulkCreate(userSearch,{
         returning:true,
