@@ -22,7 +22,7 @@ router.post('/', userAuth, async (req, res) => {
 // DELETE route for saved Searched data with id
 router.delete('/:id', userAuth, async (req, res) => {
     try {
-        const SearchedData = await Searched.destroy({
+        const SearchData = await Searched.destroy({
             // destroy saved session per params id and user_id session
             where: {
                 id: req.params.id,
@@ -30,11 +30,11 @@ router.delete('/:id', userAuth, async (req, res) => {
             },
         });
         // catch error return status 404 if Project data not found, status 200 if data found and deleted
-        if (!SearchedData) {
+        if (!SearchData) {
             res.status(404).json({ message: 'Error: No data found with this ID'});
             return;
         }
-        res.status(200).json(SearchedData);
+        res.status(200).json(SearchData);
     } catch (err) {
         res.status(500).json(err);
     }
