@@ -1,4 +1,3 @@
-
 // Function for naviagtion bar functionality
 (function() {
     var burger = document.querySelector('.burger')
@@ -27,8 +26,4 @@ exitBtn.addEventListener('click', () => {
 });
 
 // create session so modal can only pop up once 
-
-
-
-
 
