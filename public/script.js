@@ -12,18 +12,44 @@
 
 
 // Modal functionality
-const signupButton = document.querySelector('#signUp');
+const signupButton = document.querySelector('#navSignUp');
 const modalBg = document.querySelector('.modal-background');
-const modal = document.querySelector('.modal')
+const logInModal = document.querySelector('#logInModal')
+const signUpModal = document.querySelector('#signUpModal')
+const modalSignUp = document.querySelector('#signUpBtn')
+const exitBtn = document.querySelector ('#exitBtn')
+const exitBtn2 = document.querySelector ('#exitBtn2')
+const logInBtn = document.querySelector ('#logInBtn')
+
+
+// Log gin button functionality
+
+logInBtn.addEventListener ('click', () => {
+    console.log('log in button')
+    logInModal.classList.add ('is-active');
+
+});
 
 signupButton.addEventListener('click', () => {
-    modal.classList.add('is-active');
+    logInModal.classList.add('is-active');
 });
 
 // Adding event listener to close background of modal
 exitBtn.addEventListener('click', () => {
-    modal.classList.remove('is-active');
+    logInModal.classList.remove('is-active');
+});
+
+// Adding event listener to close background of modal
+exitBtn2.addEventListener('click', () => {
+    signUpModal.classList.remove('is-active');
+});
+
+console.log(modalSignUp)
+// adding event lisener to modal sign up button
+modalSignUp.addEventListener('click',() => {
+    console.log ("click on sign up")
+    logInModal.classList.remove('is-active');
+    signUpModal.classList.add('is-active');
 });
 
 // create session so modal can only pop up once 
-

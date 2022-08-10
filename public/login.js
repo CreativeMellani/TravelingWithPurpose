@@ -1,28 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //  Add the JS for the trigger src= 
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
