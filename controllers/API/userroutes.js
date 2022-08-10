@@ -3,6 +3,27 @@ const router = require('express').Router();
 // import USER models
 const { User } = require('../../models');
 
+// new user signup route and save session
+router.post('/signup', async (req, res) => {
+    try {
+        const userData = await User.create({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: req.body.passwrord
+        });
+        req.session.save(() => {
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+});
+
 // save session using user_id and log into session
 router.post('/', async (req, res) => {
     try{

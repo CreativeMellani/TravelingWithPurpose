@@ -7,7 +7,8 @@ const session = require('express-session');
 // import express-handlebars module
 const expHbs = require('express-handlebars');
 // use expHbs and helper function formatDate for handlebars engine 
-const hbs = expHbs.create({});
+const time = require('./utils/format_date');
+const hbs = expHbs.create({ time });
 // import API routes from controller folder
 const routes = require('./controllers');
 
@@ -26,11 +27,18 @@ const sequelizeSession = require('connect-session-sequelize')(session.Store);
 // use imported configurations from connections.js to update new Stored session
 const newSession = {
     secret: 'Confidential secret',
-    cookie: {},
+    cookie: {
+        // maxAge in milliseconds
+        maxAge: 36000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict'
+
+    },
     resave: false,
     saveUninitialized: true,
     store: new sequelizeSession({
-        db: sequelize
+        db: sequelize,
     })
 };
 

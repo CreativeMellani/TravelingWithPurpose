@@ -13,7 +13,7 @@ router.get('/', userAuth, async (req, res) => {
             order: [['name', 'email']],
         });
         // create users by mapping through Searched data and use to render homepage handlebars
-        const users = userData.map((Searched) => Searched.get({ plain: true}));
+        const users = userData.map((User) => User.get({ plain: true}));
         res.render('homepage', {
             users,
             logged_in: req.session.logged_in,
@@ -24,15 +24,15 @@ router.get('/', userAuth, async (req, res) => {
 });
 
 // utilize Auth helper function to redirect to login route
-router.get('/user', userAuth, async (req, res) => {
+router.get('/search', userAuth, async (req, res) => {
     try {
         // findByPk using session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
-            include: [{model: Searched}],
+            include: [{model: User }],
         });
         const user = userData.get({ plain: true});
-        res.render('user', {
+        res.render('search', {
             ...user,
             logged_in: true
         });
@@ -45,10 +45,10 @@ router.get('/user', userAuth, async (req, res) => {
 // redirect client request to user profile if logged in
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/user');
+        res.redirect('/search');
         return;
     }
-    res.render('login')
+    res.render('login');
 });
 
 // export module as router
