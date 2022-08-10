@@ -28,6 +28,12 @@ async function getApiData (advisoryAPIurl, country) {
 getApiData(advisoryAPIurl, country)
     .then((data) => data.json())
     .then((data) => {
+        const searchedCountry = {
+            "Country": data.data.DE.name,
+            "Description": data.data.DE.advisory.message,
+            "Date Updated": data.data.DE.advisory.updated,
+        }
+
         console.log('Success', data);
     })
     // catch error if err
