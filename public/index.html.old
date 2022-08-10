@@ -81,7 +81,7 @@
           </div>
           <div class="field">
             <p class="control">
-              <button class="button is-success">
+              <button id="signUpBtn" class="button is-success">
                 Log In
               </button>
               <button class="button is-info">
