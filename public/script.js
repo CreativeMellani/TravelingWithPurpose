@@ -20,7 +20,7 @@ const modalSignUp = document.querySelector('#signUpBtn')
 const exitBtn = document.querySelector ('#exitBtn')
 const exitBtn2 = document.querySelector ('#exitBtn2')
 const logInBtn = document.querySelector ('#logInBtn')
-
+const submitBtn = document.querySelector('#submitBtn')
 
 // Log gin button functionality
 
@@ -53,3 +53,77 @@ modalSignUp.addEventListener('click',() => {
 });
 
 // create session so modal can only pop up once 
+
+// async event function to link script to querySelector and addEventListeners to forms and buttons
+const userLoginForm = async(event) => {
+    // prevent form from defaulting values
+    event.preventDefault();
+    // trim user inputs of email and password entered from login form
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+
+    // send POST request to userRoute API endpoint
+    if (email && password) {
+        const response = await fetch ('api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json'},
+        });
+        // redirect user to homepage if response is successful
+        if (response.ok) {
+            document.location.replace('/homepage');
+        } else {
+            alert(response.statusText);
+        }
+    }
+};
+
+document.querySelector('#logInBtn').addEventListener('submit', userLoginForm);
+
+// async event function to link script to querySelector and addEventListeners to forms and buttons
+const userLogout = async(event) => {
+
+    // send POST request to userRoute API endpoint
+        const response = await fetch ('api/users/logout', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json'},
+        });
+        // redirect user to main if response is successful
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
+        }
+    };
+    
+document.querySelector('#logout').addEventListener('click', userLogout);
+
+// async event function to link script to querySelector and addEventListeners to forms and buttons
+const userSignUpForm = async(event) => {
+    // prevent form from defaulting values
+    event.preventDefault();
+    // trim user inputs of email and password entered from login form
+
+    const firstName = document.querySelector('#first_name').value.trim();
+    const lastName = document.querySelector('#last_name').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
+
+    // send POST request to userRoute API endpoint
+    if ( firstName && lastName && email && password) {
+        const response = await fetch ('api/users', {
+            method: 'POST',
+            body: JSON.stringify({ first_name, last_name, email, password }),
+            headers: { 'Content-Type': 'application/json'},
+        });
+        // redirect user to homepage if response is successful
+        if (response.ok) {
+            document.location.replace('/homepage');
+        } else {
+            alert(response.statusText);
+        }
+    }
+};
+
+document.querySelector('#submitBtn').addEventListener('click', userSignUpForm);

@@ -25,4 +25,4 @@ const userSignUpForm = async(event) => {
     }
 };
 
-document.querySelector('.signUp-form').addEventListener('submit', userSignUpForm);
+document.querySelector('#signUpModal').addEventListener('submit', userSignUpForm);

@@ -23,7 +23,8 @@
             <div class="navbar-end">
                 <a hred="#" class="navbar-item is-active">Home</a>
                 <button id="navSignUp"hred="#" class="navbar-item button is-primary">LogIn/ SignUp</button>
-                 <a hred="main.handlebars" class="navbar-item is-active">World Map</a>
+                <button class="no-button" id="logout">logout</button>
+                 {{!-- <a hred="main.handlebars" class="navbar-item is-active">World Map</a> --}}
 
             </div>
         </div>
@@ -31,10 +32,13 @@
     <!-- Look up connections.js week 14 day 3 activity 28 reference main folder -->
     
       {{{body}}}
+
+
+  {{#if logged_in}}
+  <script src="/public/user_logout.js"></script>
+  {{/if}}
+
 <script src="./script.js"></script>
-
-
-
 </body>
 
 </html>
