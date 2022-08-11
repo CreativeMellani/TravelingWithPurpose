@@ -1,7 +1,7 @@
 const sequilize = require ('../config/connections');
 const {User , Searched} = require ('../models');
-const userProfile = require ('../seeds/userData.json');
-const userSearch = require ('../seeds/searchData.json');
+const userProfile = require ('./userData.json');
+const userSearch = require ('./searchData.json');
 
 const userDatabase = async () =>{
     await sequilize.sync({force: true });
