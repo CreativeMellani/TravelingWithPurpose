@@ -15,9 +15,9 @@ Searched.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // description: {
-    //   type: DataTypes.STRING,
-    // },
+    message: {
+      type: DataTypes.STRING,
+    },
     date_searched: {
       type: DataTypes.DATE,
       allowNull: false,
