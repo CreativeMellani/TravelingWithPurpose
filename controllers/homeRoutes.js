@@ -5,6 +5,9 @@ const { Searched, User} = require('../models');
 // import Auth helper function from utils
 const userAuth = require('../utils/user_auth');
 
+
+// GET route to retrieve user_login.js
+
 // use middleware to check for user name and email from userData data
 router.get('/', userAuth, async (req, res) => {
     try {
@@ -45,7 +48,7 @@ router.get('/search', userAuth, async (req, res) => {
 // redirect client request to user profile if logged in
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/search');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
