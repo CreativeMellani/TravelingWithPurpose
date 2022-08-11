@@ -114,7 +114,7 @@ const userSignUpForm = async(event) => {
     if ( firstName && lastName && email && password) {
         const response = await fetch ('api/users', {
             method: 'POST',
-            body: JSON.stringify({ first_name, last_name, email, password }),
+            body: JSON.stringify({ first_name: firstName, last_name: lastName, email: email, password: password }),
             headers: { 'Content-Type': 'application/json'},
         });
         // redirect user to homepage if response is successful
