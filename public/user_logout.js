@@ -4,7 +4,7 @@ const userLogout = async(event) => {
     // send POST request to userRoute API endpoint
         const response = await fetch ('api/users/logout', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            // body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json'},
         });
         // redirect user to main if response is successful

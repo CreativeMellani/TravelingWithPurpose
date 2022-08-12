@@ -23,6 +23,11 @@
             <div class="navbar-end">
                 <a hred="#" class="navbar-item is-active">Home</a>
                 <button id="navSignUp"hred="#" class="navbar-item button is-primary">LogIn/ SignUp</button>
+<<<<<<< HEAD
+=======
+                <button class="no-button" id="logout">logout</button>
+                 {{!-- <a hred="main.handlebars" class="navbar-item is-active">World Map</a> --}}
+>>>>>>> develop
 
             </div>
         </div>
@@ -46,13 +51,20 @@
     </section>
 
       {{{body}}}
+<<<<<<< HEAD
 
     
 
 <script src="./script.js"></script>
+=======
+>>>>>>> develop
 
 
+  {{#if logged_in}}
+  <script src="/public/user_logout.js"></script>
+  {{/if}}
 
+<script src="./script.js"></script>
 </body>
 
 </html>

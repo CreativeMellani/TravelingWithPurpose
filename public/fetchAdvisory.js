@@ -1,7 +1,6 @@
 // import Searched model
-const { Searched } = require("../../models");
-// declare and store API keys
-const apiKey = ``;
+const { Searched } = require("../models");
+
 // store url of API
 const advisoryAPIurl = `https://www.travel-advisory.info/api?countrycode=AU`;
  

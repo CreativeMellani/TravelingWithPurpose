@@ -8,12 +8,12 @@ const userAuth = require('../../utils/user_auth');
 // POST route for new Searched user session
 router.post('/', userAuth, async (req, res) => {
     try {
-    const searchData = await Searched.create ({
+    const newSearch = await Searched.create ({
         ...req.body,
         user_id: req.session.user_id,
     });
 // return res status 200 into json as newSearched
-    res.status(200).json(searchData);
+    res.status(200).json(newSearch);
     }   catch (err) {
         res.status(400).json(err);
     }
