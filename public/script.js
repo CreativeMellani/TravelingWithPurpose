@@ -14,23 +14,25 @@
 // Modal functionality
 const signupButton = document.querySelector('#navSignUp');
 const modalBg = document.querySelector('.modal-background');
-const logInModal = document.querySelector('#logInModal')
-const signUpModal = document.querySelector('#signUpModal')
-const modalSignUp = document.querySelector('#signUpBtn')
-const exitBtn = document.querySelector ('#exitBtn')
-const exitBtn2 = document.querySelector ('#exitBtn2')
-const logInBtn = document.querySelector ('#logInBtn')
-const submitBtn = document.querySelector('#submitBtn')
+const logInModal = document.querySelector('#logInModal');
+const signUpModal = document.querySelector('#signUpModal');
+const modalSignUp = document.querySelector('#signUpBtn');
+const exitBtn = document.querySelector ('#exitBtn');
+const exitBtn2 = document.querySelector ('#exitBtn2');
+const logInBtn = document.querySelector ('#logInBtn');
+const submitBtn = document.querySelector('#submitBtn');
+const hbsBtn = document.querySelector('#loginhbsBtn');
 
 // Log gin button functionality
 
-logInBtn.addEventListener ('click', () => {
-    console.log('log in button')
+
+logInBtn.addEventListener('click', () => {
+    // console.log('log in button')
     logInModal.classList.add ('is-active');
 
 });
 
-signupButton.addEventListener('click', () => {
+modalSignUp.addEventListener('click', () => {
     logInModal.classList.add('is-active');
 });
 
@@ -57,10 +59,12 @@ modalSignUp.addEventListener('click',() => {
 // async event function to link script to querySelector and addEventListeners to forms and buttons
 const userLoginForm = async(event) => {
     // prevent form from defaulting values
-    event.preventDefault();
+    // event.preventDefault();
     // trim user inputs of email and password entered from login form
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.querySelector('#loginEmail').value.trim();
+    const password = document.querySelector('#loginPassword').value.trim();
+
+
 
     // send POST request to userRoute API endpoint
     if (email && password) {
@@ -71,12 +75,18 @@ const userLoginForm = async(event) => {
         });
         // redirect user to homepage if response is successful
         if (response.ok) {
-            document.location.replace('/homepage');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
     }
 };
+
+hbsBtn.addEventListener('click',userLoginForm);
+    // console.log('signing in')
+   
+
+
 
 document.querySelector('#logInBtn').addEventListener('submit', userLoginForm);
 
@@ -105,16 +115,16 @@ const userSignUpForm = async(event) => {
     event.preventDefault();
     // trim user inputs of email and password entered from login form
 
-    const firstName = document.querySelector('#first_name').value.trim();
-    const lastName = document.querySelector('#last_name').value.trim();
+    const first_name = document.querySelector('#first_name').value.trim();
+    const last_name = document.querySelector('#last_name').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
 
     // send POST request to userRoute API endpoint
-    if ( firstName && lastName && email && password) {
+    if ( first_name && last_name && email && password) {
         const response = await fetch ('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ firstName, lastName, email, password }),
+            body: JSON.stringify({ first_name, last_name, email, password }),
             headers: { 'Content-Type': 'application/json'},
         });
         // redirect user to homepage if response is successful

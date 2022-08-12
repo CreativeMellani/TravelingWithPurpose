@@ -1,37 +1,45 @@
-# Infomed Traveler
-
-We're creating a travel resource with locals in mind. 
-
-Enjoying travel while supporting the economic and environmental climate of countries with input from natives by using local specific generated content.
-
-As a user I want to recieve up to date information on my travel destination
-When I search for my destination I will be given official travel advisory updates
-
-
-
-Possible Technologies:
-node js:
-express: https://www.npmjs.com/package/express
-bcrypt: https://www.npmjs.com/package/bcrypt
-JQuery:
-Sequalize: https://www.npmjs.com/package/sequelize
-handlebars js: https://handlebarsjs.com/installation/
-sessions:
-helpers
-Cors: https://www.npmjs.com/package/cors
-Unique ID: https://www.npmjs.com/package/generate-unique-id
-leaflet js: https://www.npmjs.com/package/leaflet
-
-APIs:
-
-https://newsapi.org/docs/get-started#top-headlines
-https://rapidapi.com/hub
+# Travel with a Purpose 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  
+  ## Description
+  We created an application dedicated for people who travel and would like to be more aware of current events happening in their country of destination and how to help. 
+ ![TravelwithaPurpose](./public/images/screencapture-localhost-3002-2022-08-11-20_36_24.png)
 
 
 
 
 
-Team :
-Carolina Hernandez: Database, Schema, MySQL, (Files:)
-Min Khant: Severside, (Files:)
-Mellani Johnson: Project Management, UX/UI (Files: HTML, CSS, JS)
+  ## Table of Contents
+  
+  - [License](#license)
+  - [Contribution](#contribution)
+  - [GitHub](#gitHub)
+  - [Email](#email)
+  
+  ## License
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+ 
+  
+  ## Usage
+  
+  Access application through Heroku link ()
+      
+  
+  ## Contribution
+  Min Khant, Mellani "MJ" Johnson, Carolina Hernandez
+  
+  
+  
+  
+  ## GitHub 
+ GitHub Username: [CreativeMellani] (https://github.com/CreativeMellani)
+ GitHub Link: (https://github.com/CreativeMellani/TravelingWithPurpose)
+  
+  
+ 
+
+  
+  
+
+  
