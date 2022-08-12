@@ -14,6 +14,7 @@ Searched.init(
     Country: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: 'US',
     },
     desciption: {
       type: DataTypes.STRING,
