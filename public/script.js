@@ -19,7 +19,7 @@ const signUpModal = document.querySelector('#signUpModal')
 const modalSignUp = document.querySelector('#signUpBtn')
 const exitBtn = document.querySelector ('#exitBtn')
 const exitBtn2 = document.querySelector ('#exitBtn2')
-const logInBtn = document.querySelector ('#logInBtn')
+const logInBtn = document.querySelector ('#navSignUp')
 const submitBtn = document.querySelector('#submitBtn')
 
 // Log gin button functionality
@@ -114,7 +114,7 @@ const userSignUpForm = async(event) => {
     if ( firstName && lastName && email && password) {
         const response = await fetch ('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ firstName, lastName, email, password }),
+            body: JSON.stringify({ first_name: firstName, last_name: lastName, email: email, password: password }),
             headers: { 'Content-Type': 'application/json'},
         });
         // redirect user to homepage if response is successful

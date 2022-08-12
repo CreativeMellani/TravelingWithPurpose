@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
 // });
 
 // GET route for Searched Data and render search.handlebars
-router.get('search/:id', async (req, res) => {
+router.get('searches/:id', async (req, res) => {
     try {
         const searchData = await Searched.findByPk(req.params.id, {
             include: [
