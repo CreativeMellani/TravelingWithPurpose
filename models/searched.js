@@ -11,7 +11,7 @@ Searched.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    country: {
+    Country: {
       type: DataTypes.STRING,
       allowNull: false,
     },
