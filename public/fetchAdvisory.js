@@ -1,9 +1,11 @@
-// import Searched model
 const { Searched } = require("../models");
 
 // store url of API
 const advisoryAPIurl = `https://www.travel-advisory.info/api?countrycode=AU`;
- 
+
+let countrySearchInputEl = document.querySelector('#seachbar'); 
+
+ let country = countrySearchInputEl.value.trim
 // async fetch API request function and return data as json
 async function getApiData (advisoryAPIurl, country) {
     // store fetched data from await fetch with params
@@ -27,15 +29,17 @@ async function getApiData (advisoryAPIurl, country) {
 getApiData(advisoryAPIurl, country)
     .then((data) => data.json())
     .then((data) => {
-        const searchedCountry = {
+        const postSearchedCountry = await fetch (`/api/search`, {
+            method: 'POST',
+            body: JSON.stringify({ 
             "Country": data.data.DE.name,
             "Description": data.data.DE.advisory.message,
-            "Date Updated": data.data.DE.advisory.updated,
-        }
-
-        console.log('Success', data);
-    })
-    // catch error if err
-    .catch((error) => {
-        console.error('Error', error);
-    });
+            "Date_Updated": data.data.DE.advisory.updated,
+        },
+    )})
+});
+    // if (response.ok) {
+    //     document.location.replace('/homepage')
+    // } else {
+    //     alert('Failed to create Searched data')
+    // }})

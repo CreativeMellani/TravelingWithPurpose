@@ -112,9 +112,9 @@ const userSignUpForm = async(event) => {
 
     // send POST request to userRoute API endpoint
     if ( firstName && lastName && email && password) {
-        const response = await fetch ('api/users', {
+        const response = await fetch ('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ first_name: firstName, last_name: lastName, email: email, password: password }),
+            body: JSON.stringify({ firstName, lastName, email, password }),
             headers: { 'Content-Type': 'application/json'},
         });
         // redirect user to homepage if response is successful

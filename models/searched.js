@@ -11,14 +11,14 @@ Searched.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    country: {
+    Country: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    message: {
+    Description: {
       type: DataTypes.STRING,
     },
-    date_searched: {
+    Date_Updated: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
