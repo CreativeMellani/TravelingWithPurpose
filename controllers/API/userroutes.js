@@ -4,11 +4,11 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // new user signup route and save session
-router.post('/api/users', async (req, res) => {
+router.post('/API/users', async (req, res) => {
     try {
         const userData = await User.create({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
             email: req.body.email,
             password: req.body.password
         });

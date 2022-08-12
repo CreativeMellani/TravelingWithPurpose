@@ -1,2 +1,44 @@
-{{> login}}
-{{> signup}}
+{{!-- {{> login}}
+{{> signup}} --}}
+
+<!-- Login Modal   -->
+<div id="logInModal" class="modal is-active">
+  <div class="modal-background"> </div>
+  <div class="modal-content has-background-white py-5 pc-5">
+    <button id="exitBtn" class="button right is-danger">x</button>
+    <h3 class="title mg-6">Log In/ Sign Up</h3>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input id='loginEmail' class="input" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input id='loginPassword'class="input" type="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button id='loginhbsBtn' class="button is-success">
+          Log In
+        </button>
+        <button id="signUpBtn" class="button is-info">
+          Sign Up
+        </button>
+
+      </p>
+    </div>
+  </div>
+
+</div>
+
+{{!-- <script src="./user_login.js"></script> --}}
