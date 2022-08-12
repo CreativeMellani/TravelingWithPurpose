@@ -8,6 +8,12 @@ User.hasMany(Searched, {
 
 });
 
+Searched.hasOne(User, {
+    foreignKey: "user_id",
+    onDelete: 'CASCADE'
+
+});
+
 module.exports= { User, Searched} ;
 
 

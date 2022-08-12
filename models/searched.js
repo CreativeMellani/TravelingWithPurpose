@@ -15,10 +15,10 @@ Searched.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Description: {
+    desciption: {
       type: DataTypes.STRING,
     },
-    Date_Updated: {
+    date_updated: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
