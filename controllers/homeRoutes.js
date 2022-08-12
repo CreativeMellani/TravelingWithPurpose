@@ -76,7 +76,7 @@ router.get('/profile', userAuth, async (req, res) => {
             include: [{model: Searched }],
         });
         const user = userData.get({ plain: true});
-        res.render('profile', {
+        res.render('homepage', {
             ...user,
             logged_in: true
         });
@@ -89,7 +89,7 @@ router.get('/profile', userAuth, async (req, res) => {
 // redirect client request to user profile if logged in
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
