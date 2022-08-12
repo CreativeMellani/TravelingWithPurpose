@@ -10,7 +10,7 @@ router.post('/api/users', async (req, res) => {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.passwrord
+            password: req.body.password
         });
         req.session.save(() => {
             req.session.logged_in = true;
