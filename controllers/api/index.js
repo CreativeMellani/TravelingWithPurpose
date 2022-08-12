@@ -1,7 +1,7 @@
 // require express.router
 const router = require('express').Router();
 // import userRoutes
-const userRoutes = require('./userroutes');
+const userroutes = require('./userroutes');
 // import travelsRoutes
 const searchedRoutes = require('./searchedRoutes');
 
